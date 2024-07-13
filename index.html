@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Information</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+         button {
+            padding: 20px;
+            font-size: 24px;
+            color: white;
+            border-radius: 30px;
+        }
+        button:hover {
+            padding: 20px;
+            font-size: 30px;
+            color: white;
+            border-radius: 15px;
+        }
+        .info-container {
+            margin: 30px;
+            font-size: 24px;
+
+        }
+        #btn1 {
+            background-color: green;
+        }
+        #btn2 {
+            background-color: red;
+        }
+        #btn3 {
+            background-color: yellow;
+            color: black;
+        }
+        #btn4 {
+            background-color: blue;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="screen-info">
+        <h1>Screen Information</h1>
+        <ul>
+            <li>
+                <button id="btn1">Want to know the width of your screen?</button>
+                <div class="info-container" id="width-info"></div>
+            </li>
+            <li>
+                <button id="btn2">Want to know the height of your screen?</button>
+                <div class="info-container" id="height-info"></div>
+            </li>
+            <li>
+                <button id="btn3">Want to know the Color Depth of your screen?</button>
+                <div class="info-container" id="color-depth-info"></div>
+            </li>
+            <li>
+                <button id="btn4">Want to know the Pixel Depth of your screen?</button>
+                <div class="info-container" id="pixel-depth-info"></div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        function getScreenWidth() {
+            return `<ul><li>Width: <span>${screen.width}px</span></li></ul>`;
+        }
+
+        function getScreenHeight() {
+            return `<ul><li>Height: <span>${screen.height}px</span></li></ul>`;
+        }
+
+        function getColorDepth() {
+            return `<ul><li>Color Depth: <span>${screen.colorDepth} bits</span></li></ul>`;
+        }
+
+        function getPixelDepth() {
+            return `<ul><li>Pixel Depth: <span>${screen.pixelDepth} bits</span></li></ul>`;
+        }
+
+        document.getElementById("btn1").addEventListener("click", () => {
+            document.getElementById("width-info").innerHTML = getScreenWidth();
+        });
+
+        document.getElementById("btn2").addEventListener("click", () => {
+            document.getElementById("height-info").innerHTML = getScreenHeight();
+        });
+
+        document.getElementById("btn3").addEventListener("click", () => {
+            document.getElementById("color-depth-info").innerHTML = getColorDepth();
+        });
+
+        document.getElementById("btn4").addEventListener("click", () => {
+            document.getElementById("pixel-depth-info").innerHTML = getPixelDepth();
+        });
+    </script>
+</body>
+</html>
